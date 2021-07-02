@@ -3,17 +3,11 @@ from django.db import models
 from django.db.models.fields import CharField
 
 
-STATUS_CHOICES = (
-    (1, _("Not relevant")),
-    (2, _("Review")),
-    (3, _("Maybe relevant")),
-    (4, _("Relevant")),
-    (5, _("Leading candidate"))
-)
+class Membership(models.TextChoices):
 
-
-class Membership(models.Model):
-    models.IntegerField(choices=STATUS_CHOICES, default=1)
+    ADMIN = 'admin'
+    MODERATOR = 'moderator'
+    USER = 'user'
 
 
 class CustomUser(AbstractUser):
