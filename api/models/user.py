@@ -3,14 +3,10 @@ from django.db import models
 from django.db.models.fields import CharField
 
 
-class Membership(models.Model):
-    CHOICES = (
-        ('ad', 'admin'),
-        ('md', 'moderator'),
-        ('us', 'user'),
-    )
-    USER = models.CharField(max_length=300)
-    choices = models.CharField(max_length=300, choices=CHOICES)
+class Membership(models.TextChoices):
+    ADMIN = 'admin'
+    MODERATOR = 'moderator'
+    USER = 'user'
 
 
 class CustomUser(AbstractUser):
