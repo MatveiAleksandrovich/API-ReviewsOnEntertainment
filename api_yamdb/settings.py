@@ -12,7 +12,7 @@ SECRET_KEY = os.getenv('KEY', "value does not exist")
 
 DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get('HOSTS').split(' ')
+ALLOWED_HOSTS = os.environ.get('HOSTS')
 
 
 INSTALLED_APPS = [
