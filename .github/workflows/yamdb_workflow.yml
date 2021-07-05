@@ -30,10 +30,6 @@ jobs:
                 # запустить написанные разработчиком тесты
         pytest
 
-    - name: Copy nginx and docker-compose to the server
-      run: |
-        scp requirements.txt _rick_sanchez@130.193.53.174:/home/_rick_sanchez
-
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest

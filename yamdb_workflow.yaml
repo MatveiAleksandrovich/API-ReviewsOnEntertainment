@@ -50,6 +50,13 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/yamdb_final:latest
   deploy:
+#   Не очень понятно, как реализовать автоматизацию копирования на сервер файлов nginx и docker-compose
+#   пока что дошёл только до :
+#           - name: Copy nginx and docker-compose to the server
+#               run: |
+#                 scp requirements.txt _rick_sanchez@130.193.53.174:/home/_rick_sanchez
+#
+# Можете немного подсказать пожалуйста?
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
     if: github.ref == 'refs/heads/master'
@@ -65,7 +72,7 @@ jobs:
         script: |
           # Выполняет pull образа с DockerHub
           sudo docker pull indik/yamdb:v2.0
-          sudo docker-compose stop
+          sudo docker-compose stop rick_sanchez_web_1
           sudo docker-compose rm web
           # Создаст файл для переменных окружения
           touch .env
