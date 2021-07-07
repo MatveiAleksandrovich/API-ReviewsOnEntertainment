@@ -7,13 +7,13 @@ load_dotenv()
 os.environ['DJANGO_SETTINGS_MODULE'] = 'api_yamdb.settings'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(',')
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(',')
 
 
-settings.configure(SECRET_KEY=SECRET_KEY, ALLOWED_HOSTS=ALLOWED_HOSTS)
+settings.configure(SECRET_KEY=SECRET_KEY)
 
 SECRET_KEY = os.getenv('KEY', default='key does not exist')
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*', 'web:8000']
 DEBUG = False
 
 
