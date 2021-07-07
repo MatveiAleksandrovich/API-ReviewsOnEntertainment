@@ -8,11 +8,11 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'api_yamdb.settings'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = os.getenv('KEY', 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs')
+SECRET_KEY = os.getenv('KEY', default='key does not exist')
 
 DEBUG = False
 
-HOSTS = os.environ.get('HOSTS')
+HOSTS = os.environ.get('HOSTS').split(' ')
 ALLOWED_HOSTS = [HOSTS]
 
 
