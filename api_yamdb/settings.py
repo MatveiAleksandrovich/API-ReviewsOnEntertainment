@@ -1,19 +1,19 @@
 import os
-
+from django.conf import settings
 from dotenv import load_dotenv
 
 
 load_dotenv()
 os.environ['DJANGO_SETTINGS_MODULE'] = 'api_yamdb.settings'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SECRET_KEY = os.environ.get('SECRET_KEY')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
 
+settings.configure(SECRET_KEY=SECRET_KEY, ALLOWED_HOSTS=ALLOWED_HOSTS)
 
 SECRET_KEY = os.getenv('KEY', default='key does not exist')
 
 DEBUG = False
-
-HOSTS = os.environ.get('HOSTS').split(' ')
-ALLOWED_HOSTS = [HOSTS]
 
 
 INSTALLED_APPS = [
