@@ -1,8 +1,8 @@
 # Entertainment RESTful API
-### Описание
+### Description
 API project for publishing reviews of various films, books, newspapers, etc. You can also add categories, genres yourself.
 I studied the advanced features of the django-rest-framework, and also worked with Docker, flake8, telegram API and set up a workflow for automated tests, pushing to DockerHub, deploying to the server and sending a telegram message about the workflow result.
-### Технологии
+### Technology
 Python 3.7
 Django 2.2.19
 Docker
